@@ -1,0 +1,27 @@
+set xdata time 
+set timefmt "%Y-%m-%d|%H:%M:%S" 
+set xtics format "%H" rotate 3600
+set xlabel "Hours" offset -1,-1,-1
+set key width -2 left top samplen 1 spacing .8 font ",6"
+set term png truecolor 
+set style data lines
+set style fill solid 0.5 noborder
+set output "cv_today.png"
+set title "Temperatures on " . system("date +%d-%b-%Y")
+set ylabel "Temperature ºC"
+set yrange [-20:90]
+set ytics 10
+set grid front lc rgb "#AAAAAA"
+
+# color picker: http://www.w3schools.com/colors/colors_picker.asp
+
+plot \
+     'cv_now.dat' using 1:3 notitle 'SolarFarm' with filledcurve below x1 lw 1 lc rgb "#FFD11A", \
+     'cv_now.dat' using 1:3 title 'SolarFarm' lw 3 lc rgb "#E6B800", \
+     'cv_now.dat' using 1:4 notitle 'Outside' with filledcurve below x1 lw 1 lc rgb "#B3B3B3", \
+     'cv_now.dat' using 1:4 title 'Outside' lw 3 lc rgb "#A0A0A0",\
+     'cv_now.dat' using 1:2 title 'Heater' lw 3 lc rgb "forest-green", \
+     'cv_now.dat' using 1:5 title 'Pool' lw 3 lc rgb "blue"
+
+
+
