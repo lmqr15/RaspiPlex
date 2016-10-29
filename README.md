@@ -6,6 +6,5 @@ We (Wim and I) started this project as an experiment to see how far we could get
 
 This is a project in progress. By sharing our material we hope people will learn with or teach us. Parts starting with a prefix like PL (pool), LM (house), CV (central) and SF (solar farm) are stable and in 'production'. Other parts are supporting scripts.
 
-
-
-
+note:
+rename config_hms copy.py to config_hms.py, you will need config_hms.py and bieb.py to run any of the prefixed scripts.
